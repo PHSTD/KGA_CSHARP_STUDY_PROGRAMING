@@ -74,15 +74,14 @@ class Program
         {
             int z;
             typeCH = int.TryParse(Console.ReadLine(), out z);
-
-            switch (z)
+            if (
+                z == 1 ||
+                z == 2 ||
+                z == 3 ||
+                z == 4 ||
+                z == 5
+            )
             {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    
                     if (z > ++myClLv)
                     {
                         NoNextMap();
@@ -91,14 +90,15 @@ class Program
                     {
                         MapPrint(z);
                     }
-                    break;
-                case 0:
-                    typeCH = true;
-                    break;
-                default:
-                    OverRange();
-                    break;
                 
+            }
+            else if (z == 0)
+            {
+                break;
+            }
+            else
+            {
+                OverRange();
             }
         }
     }
@@ -141,7 +141,7 @@ class Program
     static void MapPrint(int level)
     {
         Console.Clear();
-        char[,] map;
+        char[,] map = new char[,] { };
         switch (level)
         {
             case 1:
