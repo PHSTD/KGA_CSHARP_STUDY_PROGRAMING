@@ -6,13 +6,24 @@ namespace Day250319_1;
 
 class Program
 {
-    static void Main(string[] args)
+
+    struct PlayerPos
+    {
+        public int x;
+        public int y;
+    }
+    
+    static void Main()
     {
         
         Console.WriteLine("----- 디지몬 ----- ");
         Console.WriteLine("1. 디지털 세계로 진입(시작) ");
         Console.WriteLine("2. 디지바이스(설정) ");
-        Console.WriteLine("3. 디지털 세계 나가기(종료) ");
+        Console.WriteLine("0. 디지털 세계 나가기(종료) ");
+
+        PlayerPos playerPos;
+        playerPos.x = 0;
+        playerPos.y = 0;
 
         bool gameOver = false;
         while (gameOver == false)
@@ -23,14 +34,14 @@ class Program
             switch (z)
             {
                 case 1:
-                    Start();
+                    Start(playerPos);
                     break;
                 
                 case 2:
                     
                     break;
                 
-                case 3:
+                case 0:
                     End();
                     break;
                     
@@ -41,9 +52,12 @@ class Program
         }
     }
 
-    static void Start()
+
+
+    static void Start(PlayerPos playerPos)
     {
-        Render();
+        Console.CursorVisible = false;
+        Render(playerPos);
     }
     
    static void boolReverse (ref bool boo)
@@ -53,15 +67,16 @@ class Program
     
     static void End()
     {
-        Console.Clear();
+        // Console.Clear();
         Console.Write("게임이 종료 되었습니다.");
         Environment.Exit(0);
     }
 
-    static void Render()
+    static void Render(PlayerPos playerPos)
     {
         int myClLv = 2;
-        bool typeCH = false;
+        bool typeCH = true;
+        
         Console.WriteLine("몇 단계로 시작하시겠습니까?");
         Console.WriteLine("1. 레벨 1(클리어)");
         Console.WriteLine("2. 레벨 2(클리어)");
@@ -70,81 +85,82 @@ class Program
         Console.WriteLine("5. 레벨 5(실행 불가)");
         Console.WriteLine("0. 메인으로");
         
-        while (!typeCH)
+        while (true)
         {
-            int z;
-            typeCH = int.TryParse(Console.ReadLine(), out z);
+            float z;
+            float.TryParse(Console.ReadLine(), out z);
             if (
-                z == 1 ||
+                z == 1.0f ||
                 z == 2 ||
                 z == 3 ||
                 z == 4 ||
                 z == 5
             )
             {
-                    if (z > ++myClLv)
-                    {
-                        NoNextMap();
-                    }
-                    else
-                    {
-                        MapPrint(z);
-                    }
-                
+                // 클리어 하지 않은 맵 막기
+                MapLevel(z, myClLv, playerPos);
             }
-            else if (z == 0)
+            // TODO: 엔터를 0으로 인식함 
+            else if (z == 0.0f)
             {
-                break;
+                // main 화면으로 이동
+                Main();
+                // break;
             }
             else
             {
+                // 값이 없는 값이나 문자를 입력했을 떄
                 OverRange();
             }
         }
-    }
 
+    }
+        
+    // 지정하기 않은 맵 이나 키를 선택한 경우
     static void OverRange()
     {
         Console.WriteLine("범위를 벗어났습니다.");
     }
     
     
+    // 클리어 하지 않음 맵
     static void NoNextMap()
     {
         Console.WriteLine("지금은 실행할 수 없는 맵 입니다.");
     }
     
-    static bool MapLevelCheck(int mapLevel, int myClLv)
+    static bool MapLevelCheck(float mapLevel, int myClLv)
     {
         if (mapLevel > ++myClLv)
         {
             NoNextMap();
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
     
-    static bool MapLevel(int level, int myClLv)
+    static void MapLevel(float level, int myClLv, PlayerPos playerPos)
+    
     {
         bool bol = MapLevelCheck(level, myClLv);
 
-        
         if (bol)
         {
-            MapPrint(level);
+            MapPrint(level, playerPos);
         }
 
-        return bol;
+        // boolReverse(ref bol);
     }
 
-    static void MapPrint(int level)
+    static void MapPrint(float level, PlayerPos playerPos)
     {
-        Console.Clear();
         char[,] map = new char[,] { };
+        
         switch (level)
         {
             case 1:
+                
                 map = new char[10,20]{
                     {'@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@'},
                     {'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
@@ -169,6 +185,7 @@ class Program
                 break;
             
             default:
+                OverRange();
                 break;
         }
         
@@ -182,7 +199,6 @@ class Program
             }
             Console.WriteLine();
         }
-        
     }
     
     static void Input()
