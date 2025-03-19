@@ -53,6 +53,9 @@ venv.bak/
 *.backup
 *.obsidian
 ._*
+
+
+# CS
 /build/
 *.suo
 *.user
