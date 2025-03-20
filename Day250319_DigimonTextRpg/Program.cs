@@ -95,21 +95,21 @@ class Program
         {
             string input = Console.ReadLine();
             
-            // 1) 유효한 float인지 먼저 판단
+            // 1) 유효한 int인지 먼저 판단
             // 2) TryParse()가 false면 숫자로 변환 실패 → OverRange() 처리
-            if (!float.TryParse(input, out float z))
+            if (!int.TryParse(input, out int z))
             {
                 OverRange();
                 continue;
             }
 
             // 변환에 성공한 경우, z의 값에 따라 분기
-            if (z == 1.0f || z == 2.0f || z == 3.0f || z == 4.0f || z == 5.0f)
+            if (z == 1 || z == 2 || z == 3 || z == 4 || z == 5)
             {
                 // 클리어하지 않은 맵은 내부에서 막는다고 가정
                 MapLevel(z, myClLv, playerPos, gameOver);
             }
-            else if (z == 0.0f)
+            else if (z == 0)
             {
                 // 메인 화면으로 이동
                 Main();
@@ -137,7 +137,7 @@ class Program
         Console.WriteLine("지금은 실행할 수 없는 맵 입니다.");
     }
     
-    static bool MapLevelCheck(float mapLevel, int myClLv)
+    static bool MapLevelCheck(int mapLevel, int myClLv)
     {
         if (mapLevel > ++myClLv)
         {
@@ -148,36 +148,23 @@ class Program
         return true;
     }
     
-    static void MapLevel(float level, int myClLv, PlayerPos playerPos,bool gameOver)
+    static void MapLevel(int level, int myClLv, PlayerPos playerPos,bool gameOver)
     {
         bool bol = MapLevelCheck(level, myClLv);
 
         if (bol)
         {
             char[,] map = MapPrint(level, playerPos);
-            
-            // 예시: 맵 데이터 출력
-            for (int row = 0; row < map.GetLength(0); row++)
-            {
-                for (int col = 0; col < map.GetLength(1); col++)
-                {
-                    Console.Write(map[row, col]);
-                    Console.Write(" ");
-                }
-                Console.WriteLine();
-            }
-        
-            PlayerPrint(playerPos);
+            PlayerPrint(level, playerPos);
             ConsoleKey key = Input();
             Update(key, ref playerPos, map, ref gameOver);
         }
     }
 
-    static void PlayerPrint(PlayerPos playerPos)
+    static void PlayerPrint(int level, PlayerPos playerPos)
     {
+        
         // 플레이어 위치 설정
-        playerPos.x = 4;
-        playerPos.y = 4;
         Console.SetCursorPosition(playerPos.x, playerPos.y);
         Console.ForegroundColor = ConsoleColor.Green;
         Console.Write('▼');
@@ -185,7 +172,7 @@ class Program
         
     }
 
-    static char[,] MapPrint(float level, PlayerPos playerPos)
+    static char[,] MapPrint(int level, PlayerPos playerPos)
     {
         Console.Clear();
         
@@ -195,7 +182,7 @@ class Program
         switch (level)
         {
             case 1:
-
+                
                 map = new char[15,20]{
                     {'@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@'},
                     {'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
@@ -227,6 +214,17 @@ class Program
             default:
                 OverRange();
                 break;
+        }
+        
+        // 예시: 맵 데이터 출력
+        for (int row = 0; row < map.GetLength(0); row++)
+        {
+            for (int col = 0; col < map.GetLength(1); col++)
+            {
+                Console.Write(map[row, col]);
+                Console.Write(" ");
+            }
+            Console.WriteLine();
         }
         
         return map;
