@@ -30,9 +30,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day250318_1", "Day250318_1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. Project_S", "10. Project_S\10. Project_S.csproj", "{7773E0CA-4150-43A2-A092-42C005FC6BC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. Project_s", "09. Project_s\09. Project_s.csproj", "{F902F7AC-1F9E-4E03-9A4B-26E24D2E73FB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day250319_DigimonTextRpg", "Day250319_DigimonTextRpg\Day250319_DigimonTextRpg.csproj", "{19539A52-0306-4EEA-A103-9672308FE47E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.ProjectSokoban", "09.ProjectSokoban\09.ProjectSokoban.csproj", "{F909DE36-4094-4F79-AD85-C85C07DFFE77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,13 +100,13 @@ Global
 		{7773E0CA-4150-43A2-A092-42C005FC6BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7773E0CA-4150-43A2-A092-42C005FC6BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7773E0CA-4150-43A2-A092-42C005FC6BC3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F902F7AC-1F9E-4E03-9A4B-26E24D2E73FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F902F7AC-1F9E-4E03-9A4B-26E24D2E73FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F902F7AC-1F9E-4E03-9A4B-26E24D2E73FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F902F7AC-1F9E-4E03-9A4B-26E24D2E73FB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19539A52-0306-4EEA-A103-9672308FE47E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19539A52-0306-4EEA-A103-9672308FE47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19539A52-0306-4EEA-A103-9672308FE47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19539A52-0306-4EEA-A103-9672308FE47E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F909DE36-4094-4F79-AD85-C85C07DFFE77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F909DE36-4094-4F79-AD85-C85C07DFFE77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F909DE36-4094-4F79-AD85-C85C07DFFE77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F909DE36-4094-4F79-AD85-C85C07DFFE77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

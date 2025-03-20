@@ -1,4 +1,5 @@
-﻿namespace _09._ConsoleProject
+﻿namespace _09.ProjectSokoban
+
 {
     internal class Program
     {
