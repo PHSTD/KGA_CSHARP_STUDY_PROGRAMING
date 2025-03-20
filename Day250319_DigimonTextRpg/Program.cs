@@ -24,6 +24,7 @@ class Program
         PlayerPos playerPos;
         playerPos.x = 0;
         playerPos.y = 0;
+        //
 
         bool gameOver = false;
         while (gameOver == false)
