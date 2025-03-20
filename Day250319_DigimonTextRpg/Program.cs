@@ -24,34 +24,42 @@ class Program
         PlayerPos playerPos;
         playerPos.x = 0;
         playerPos.y = 0;
-        //
 
-        bool gameOver = false;
-        while (gameOver == false)
+    bool gameOver = false;
+    while (!gameOver)
+    {
+        // 1) 문자열로 먼저 입력을 받는다.
+        string input = Console.ReadLine();
+
+        // 2) TryParse()가 false이면 변환에 실패한 것이므로 OverRange() 호출
+        if (!int.TryParse(input, out int z))
         {
-            int z;
-            int.TryParse(Console.ReadLine(), out z);
+            OverRange();
+            continue; 
+        }
+
+        switch (z)
+        {
+            case 1:
+                Start(playerPos);
+                break;
             
-            switch (z)
-            {
-                case 1:
-                    Start(playerPos);
-                    break;
+            case 2:
+                // 디지바이스 설정
+                break;
+            
+            case 0:
+                End();
+                // 필요 시 여기에서 gameOver = true; 로 바꿔주면 while문 탈출
+                break;
                 
-                case 2:
-                    
-                    break;
-                
-                case 0:
-                    End();
-                    break;
-                    
-                default:
-                    OverRange();
-                    break;
-            }
+            default:
+                OverRange();
+                break;
         }
     }
+}
+
 
 
 
@@ -74,48 +82,50 @@ class Program
     }
 
     static void Render(PlayerPos playerPos)
+{
+    int myClLv = 2;
+    bool typeCH = true;
+    
+    Console.WriteLine("몇 단계로 시작하시겠습니까?");
+    Console.WriteLine("1. 레벨 1(클리어)");
+    Console.WriteLine("2. 레벨 2(클리어)");
+    Console.WriteLine("3. 레벨 3");
+    Console.WriteLine("4. 레벨 4(실행 불가)");
+    Console.WriteLine("5. 레벨 5(실행 불가)");
+    Console.WriteLine("0. 메인으로");
+    
+    while (true)
     {
-        int myClLv = 2;
-        bool typeCH = true;
+        string input = Console.ReadLine();
         
-        Console.WriteLine("몇 단계로 시작하시겠습니까?");
-        Console.WriteLine("1. 레벨 1(클리어)");
-        Console.WriteLine("2. 레벨 2(클리어)");
-        Console.WriteLine("3. 레벨 3");
-        Console.WriteLine("4. 레벨 4(실행 불가)");
-        Console.WriteLine("5. 레벨 5(실행 불가)");
-        Console.WriteLine("0. 메인으로");
-        
-        while (true)
+        // 1) 유효한 float인지 먼저 판단
+        // 2) TryParse()가 false면 숫자로 변환 실패 → OverRange() 처리
+        if (!float.TryParse(input, out float z))
         {
-            float z;
-            float.TryParse(Console.ReadLine(), out z);
-            if (
-                z == 1.0f ||
-                z == 2 ||
-                z == 3 ||
-                z == 4 ||
-                z == 5
-            )
-            {
-                // 클리어 하지 않은 맵 막기
-                MapLevel(z, myClLv, playerPos);
-            }
-            // TODO: 엔터를 0으로 인식함 
-            else if (z == 0.0f)
-            {
-                // main 화면으로 이동
-                Main();
-                // break;
-            }
-            else
-            {
-                // 값이 없는 값이나 문자를 입력했을 떄
-                OverRange();
-            }
+            OverRange();
+            continue;
         }
 
+        // 변환에 성공한 경우, z의 값에 따라 분기
+        if (z == 1.0f || z == 2.0f || z == 3.0f || z == 4.0f || z == 5.0f)
+        {
+            // 클리어하지 않은 맵은 내부에서 막는다고 가정
+            MapLevel(z, myClLv, playerPos);
+        }
+        else if (z == 0.0f)
+        {
+            // 메인 화면으로 이동
+            Main();
+            // break; // 계속 while 문을 돌리고 싶지 않다면 break 처리
+        }
+        else
+        {
+            // 범위를 벗어난 입력
+            OverRange();
+        }
     }
+}
+
         
     // 지정하기 않은 맵 이나 키를 선택한 경우
     static void OverRange()
