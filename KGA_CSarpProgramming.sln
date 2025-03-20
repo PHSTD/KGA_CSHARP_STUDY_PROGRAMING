@@ -32,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. Project_S", "10. Projec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. Project_s", "09. Project_s\09. Project_s.csproj", "{F902F7AC-1F9E-4E03-9A4B-26E24D2E73FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day250319_디지몬 텍스트 RPG", "Day250319_디지몬 텍스트 RPG\Day250319_디지몬 텍스트 RPG.csproj", "{19539A52-0306-4EEA-A103-9672308FE47E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day250319_DigimonTextRpg", "Day250319_DigimonTextRpg\Day250319_DigimonTextRpg.csproj", "{19539A52-0306-4EEA-A103-9672308FE47E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
