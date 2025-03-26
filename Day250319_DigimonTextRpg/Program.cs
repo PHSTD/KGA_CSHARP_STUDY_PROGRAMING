@@ -26,40 +26,40 @@ class Program
         playerPos.x = 0;
         playerPos.y = 0;
 
-    bool gameOver = false;
-    while (!gameOver)
-    {
-        // 1) 문자열로 먼저 입력을 받는다.
-        string input = Console.ReadLine();
-
-        // 2) TryParse()가 false이면 변환에 실패한 것이므로 OverRange() 호출
-        if (!int.TryParse(input, out int z))
+        bool gameOver = false;
+        while (!gameOver)
         {
-            OverRange();
-            continue; 
-        }
+            // 1) 문자열로 먼저 입력을 받는다.
+            string input = Console.ReadLine();
 
-        switch (z)
-        {
-            case 1:
-                Start(playerPos, gameOver);
-                break;
-            
-            case 2:
-                // 디지바이스 설정
-                break;
-            
-            case 0:
-                End();
-                // 필요 시 여기에서 gameOver = true; 로 바꿔주면 while문 탈출
-                break;
-                
-            default:
+            // 2) TryParse()가 false이면 변환에 실패한 것이므로 OverRange() 호출
+            if (!int.TryParse(input, out int z))
+            {
                 OverRange();
-                break;
+                continue; 
+            }
+
+            switch (z)
+            {
+                case 1:
+                    Start(playerPos, gameOver);
+                    break;
+                
+                case 2:
+                    // 디지바이스 설정
+                    break;
+                
+                case 0:
+                    End();
+                    // 필요 시 여기에서 gameOver = true; 로 바꿔주면 while문 탈출
+                    break;
+                    
+                default:
+                    OverRange();
+                    break;
+            }
         }
     }
-}
 
 
 
@@ -154,7 +154,7 @@ class Program
 
         if (bol)
         {
-            char[,] map = MapPrint(level, playerPos);
+            char[,] map = CreateMapPrint(level);
             PlayerPrint(level, playerPos);
             ConsoleKey key = Input();
             Update(key, ref playerPos, map, ref gameOver);
@@ -163,7 +163,6 @@ class Program
 
     static void PlayerPrint(int level, PlayerPos playerPos)
     {
-        
         // 플레이어 위치 설정
         Console.SetCursorPosition(playerPos.x, playerPos.y);
         Console.ForegroundColor = ConsoleColor.Green;
@@ -172,7 +171,22 @@ class Program
         
     }
 
-    static char[,] MapPrint(int level, PlayerPos playerPos)
+    static void MapPrint(char[,] map)
+    {
+        
+        // 예시: 맵 데이터 출력
+        for (int row = 0; row < map.GetLength(0); row++)
+        {
+            for (int col = 0; col < map.GetLength(1); col++)
+            {
+                Console.Write(map[row, col]);
+                Console.Write(" ");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    static char[,] CreateMapPrint(int level)
     {
         Console.Clear();
         
@@ -200,6 +214,7 @@ class Program
                     {'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
                     {'@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@','@'},
                 };
+
                 
                 break;
             case 2:
@@ -214,17 +229,6 @@ class Program
             default:
                 OverRange();
                 break;
-        }
-        
-        // 예시: 맵 데이터 출력
-        for (int row = 0; row < map.GetLength(0); row++)
-        {
-            for (int col = 0; col < map.GetLength(1); col++)
-            {
-                Console.Write(map[row, col]);
-                Console.Write(" ");
-            }
-            Console.WriteLine();
         }
         
         return map;
