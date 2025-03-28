@@ -56,6 +56,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day250327_team_alone", "Day
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure", "DataStructure\DataStructure.csproj", "{31D174DE-8517-4FCE-B68B-5BB8271A40ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day250328", "Day250328\Day250328.csproj", "{4810BA1D-7170-4EF6-805E-94F565506D96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -174,5 +176,9 @@ Global
 		{31D174DE-8517-4FCE-B68B-5BB8271A40ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31D174DE-8517-4FCE-B68B-5BB8271A40ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31D174DE-8517-4FCE-B68B-5BB8271A40ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4810BA1D-7170-4EF6-805E-94F565506D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4810BA1D-7170-4EF6-805E-94F565506D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4810BA1D-7170-4EF6-805E-94F565506D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4810BA1D-7170-4EF6-805E-94F565506D96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
