@@ -43,17 +43,20 @@ class Program
         myStack.Push("32");
         myStack.Push("33");
 
+        // myStack.Clear();
 
         string[] str = myStack.stringT;
         for (int i = 0; i < str.Length; i++)
         {
-            if (str[i] != null)
+            if (str[i]  != null)
             {
                 Console.WriteLine(str[i]);
             }
         }
 
         
+        Console.WriteLine(myStack.Pop());
+        Console.WriteLine(myStack.Peek());
         
         
         // 팀

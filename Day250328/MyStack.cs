@@ -49,6 +49,67 @@ public class MyStack<T>
             }
         }
     }
+
+    public T Peek()
+    {
+        int tail = 0;
+        for (int i = 0; i < arrStacks.Length; i++)
+        {
+            try
+            {
+                if (arrStacks[i] == null)
+                {
+                    tail = i - 1;
+                    break;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        return arrStacks[tail];
+    }
+
+    public T Pop()
+    {
+        int tail = 0;
+        for (int i = 0; i < arrStacks.Length; i++)
+        {
+            try
+            {
+                if (arrStacks[i] == null)
+                {
+                    tail = i - 1;
+                    break;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
+        T tempArr = arrStacks[tail];
+        arrStacks[tail] = default(T);
+        
+        return tempArr;
+    }
+
+    // public void Clear()
+    // {
+    //     stackLength = 10;
+    //     arrStacks = new T[stackLength];
+    //     for (int i = 0; i < arrStacks.Length; i++)
+    //     {
+    //         arrStacks[i] = default(T);
+    //     }
+    // }
     
     
     public T[] stringT
