@@ -1,6 +1,6 @@
 namespace Day250328;
 
-public class Training
+public class Team
 {
     public int Yosepus(int n, int k)
     {
