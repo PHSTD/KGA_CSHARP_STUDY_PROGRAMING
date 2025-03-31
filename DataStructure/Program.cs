@@ -108,17 +108,44 @@ class Program
 
     
     
-    // 입력값      
     static void Main(string[] args)
     {
+        
+        
         // List list = new List();
         // list.ListTest();
 
         // Stack stack = new Stack();
         // stack.Stacks();
 
-        Queue queue = new Queue();
-        queue.Queues();
+        // Queue queue = new Queue();
+        // queue.Queues();
+
+
+        // Dictionary dictionary = new Dictionary();
+        // dictionary.MyDictionary();
+        
+        
+        // 그래프
+        // Graph graph = new Graph();
+        // ver 1
+        // Graph.GraphNode<int> node0 = new Graph.GraphNode<int>(0);
+        // Graph.GraphNode<int> node1 = new Graph.GraphNode<int>(1);
+        // Graph.GraphNode<int> node2 = new Graph.GraphNode<int>(2);
+        // Graph.GraphNode<int> node3 = new Graph.GraphNode<int>(3);
+        // Graph.GraphNode<int> node4 = new Graph.GraphNode<int>(4);
+        // Graph.GraphNode<int> node5 = new Graph.GraphNode<int>(5);
+        // Graph.GraphNode<int> node6 = new Graph.GraphNode<int>(6);
+        // Graph.GraphNode<int> node7 = new Graph.GraphNode<int>(7);
+        //
+        // node0.AddEdge(node3);
+        // node3.AddEdge(node0);
+        // node0.AddEdge(node4);
+        // node4.AddEdge(node0);
+        
+        // ver 2
+        // graph.CreateGraph1();
+        // graph.CreateGraph2();
 
     }
 }

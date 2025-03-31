@@ -55,19 +55,15 @@ public class MyStack<T>
         int tail = 0;
         for (int i = 0; i < arrStacks.Length; i++)
         {
-            try
+            if (arrStacks[i] == null)
             {
-                if (arrStacks[i] == null)
-                {
-                    tail = i - 1;
-                    break;
-                }
+                tail = i - 1;
 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
+                if (tail < 0)
+                {
+                    tail = 0;
+                }
+                break;
             }
         }
 
@@ -79,19 +75,10 @@ public class MyStack<T>
         int tail = 0;
         for (int i = 0; i < arrStacks.Length; i++)
         {
-            try
+            if (arrStacks[i] == null)
             {
-                if (arrStacks[i] == null)
-                {
-                    tail = i - 1;
-                    break;
-                }
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                throw;
+                tail = i - 1;
+                break;
             }
         }
 
@@ -101,20 +88,30 @@ public class MyStack<T>
         return tempArr;
     }
 
-    // public void Clear()
-    // {
-    //     stackLength = 10;
-    //     arrStacks = new T[stackLength];
-    //     for (int i = 0; i < arrStacks.Length; i++)
-    //     {
-    //         arrStacks[i] = default(T);
-    //     }
-    // }
+    public void Clear()
+    {
+        stackLength = 10;
+        arrStacks = new T[stackLength];
+        for (int i = 0; i < arrStacks.Length; i++)
+        {
+            if (typeof(T) == typeof(string))
+            {
+                arrStacks[i] = (T)(object)string.Empty;
+            }
+            else
+            {
+                arrStacks[i] = default(T);
+            }
+        }
+    }
     
     
     public T[] stringT
     {
-        get { return arrStacks; }
+        get
+        {
+            return arrStacks;
+        }
     }
     
 }
