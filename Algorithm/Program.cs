@@ -26,6 +26,8 @@ class Program
         int[] insertArray = new int[count];
         int[] bubbleArray = new int[count];
         int[] mergeArray = new int[count];
+        int[] quickArray = new int[count];
+        
         Console.WriteLine("랜덤 데이터 결과 : ");
         for (int i = 0; i < count; i++)
         {
@@ -36,6 +38,7 @@ class Program
             insertArray[i] = rand;
             bubbleArray[i] = rand;
             mergeArray[i] = rand;
+            quickArray[i] = rand;
         }
         Console.WriteLine();
         Console.WriteLine();
@@ -74,6 +77,17 @@ class Program
             Console.Write($"{value,3} ");
         }
         Console.WriteLine();
+        
+        
+        
+        Sorting.QuickSort(quickArray);
+        Console.WriteLine("삽입 정렬 결과 : ");
+        foreach (int value in quickArray)
+        {
+            Console.Write($"{value,3} ");
+        }
+        Console.WriteLine();
+        
     }
     
     

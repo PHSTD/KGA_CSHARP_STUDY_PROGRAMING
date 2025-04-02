@@ -51,6 +51,50 @@ public class Sorting
         }
     }
     
+    // 퀵정렬
+    public static void QuickSort(int[] array) => QuickSort(array, 0, array.Length - 1);
+
+    public static void QuickSort(int[] array, int start, int end)
+    {
+        if (start >= end)
+            return;
+        int pivot = start;
+        int left = pivot + 1;
+        int right = end;
+
+        // 레프트와 라이트가 교차할때 까지 반복
+        while (left <= right)
+        {
+            // 레프트는 피벗보다 더 큰값을 볼때 까지 오른쪽으로 이동
+            while (array[pivot] >= array[left] && left < right)
+            {
+                left++;
+            }
+
+            while (array[pivot] < array[right] && left <= right)
+            {
+                right--;
+            }
+            // 라이트는 피벗보다 더 작은값을 볼때까지 왼쪽으로 이동
+            
+            // 레프트와 라이트가 교차 안했다면
+            if (left < right)
+            {
+               // 레프트와 라이트 값을 교체 
+               Swap(array, left, right);
+            }
+            else
+            {
+                // pivot과 라이트를 r
+               Swap(array, pivot, right);
+               break;
+            }
+        }
+        QuickSort(array, start, right - 1);
+        QuickSort(array, right + 1, end);
+    }
+        
+    
     // 병합정렬
     public static void MergeSort(int[] array) => MergeSort(array, 0, array.Length - 1);
     public static void MergeSort(int[] array, int start, int end)
