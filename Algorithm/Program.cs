@@ -25,6 +25,7 @@ class Program
         int[] selectArray = new int[count];
         int[] insertArray = new int[count];
         int[] bubbleArray = new int[count];
+        int[] mergeArray = new int[count];
         Console.WriteLine("랜덤 데이터 결과 : ");
         for (int i = 0; i < count; i++)
         {
@@ -34,6 +35,7 @@ class Program
             selectArray[i] = rand;
             insertArray[i] = rand;
             bubbleArray[i] = rand;
+            mergeArray[i] = rand;
         }
         Console.WriteLine();
         Console.WriteLine();
@@ -62,5 +64,18 @@ class Program
             Console.Write($"{value,3} ");
         }
         Console.WriteLine();
+        
+        
+        
+        Sorting.MergeSort(mergeArray);
+        Console.WriteLine("병합 정렬 결과 : ");
+        foreach (int value in mergeArray)
+        {
+            Console.Write($"{value,3} ");
+        }
+        Console.WriteLine();
     }
+    
+    
+    
 }

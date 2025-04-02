@@ -51,6 +51,73 @@ public class Sorting
         }
     }
     
+    // 병합정렬
+    public static void MergeSort(int[] array) => MergeSort(array, 0, array.Length - 1);
+    public static void MergeSort(int[] array, int start, int end)
+    {
+        // 1개만 남았을땐 돌아가게
+        if (start == end)
+        {
+            return;
+        }
+        // 0 ~ 20
+        int mid = (start + end) / 2;
+        MergeSort(array, start, mid); // 0 ~ 10
+        MergeSort(array, mid + 1, end); // 11 ~ 20
+        Merge(array, start, mid, end);
+    }
+
+    public static void Merge(int[] array, int start, int mid, int end)
+    {
+        List<int> sortedList = new List<int>();
+        int leftIndex = start;
+        int rightIndex = mid + 1;
+
+        // 한쪽이 모두 소진 될때까지
+        while (leftIndex <= mid && rightIndex <= end)
+        {
+            // 왼쪽이 작으면
+            if (array[leftIndex] < array[rightIndex])
+            {
+                // 왼쪽 값 정렬된 리스트에 집어넣기
+                sortedList.Add(array[leftIndex]);
+                leftIndex++;
+            }
+            else
+            {
+                // 오른쪽 값 정렬된 리스트에 집어넣기
+                sortedList.Add(array[rightIndex]);
+                rightIndex++;
+            }
+        }
+        // 남아있는 것들을 정렬된 모드 추가
+        // 왼쪽이 남아있으면
+        if (leftIndex <= mid)
+        {
+            // 왼쪽 나머지들 모두 정렬된 리스트에 추가
+            while (leftIndex <= mid)
+            {
+                sortedList.Add(array[leftIndex]);
+                leftIndex++;
+            }
+        }
+        // 오른쪽 나머지를 모두 정렬된 리스트에 추가
+        else // if(rightIdex <= end)
+        {
+            // 왼쪽 나머지들 모두 정렬된 리스트에 추가
+            while (rightIndex<= end)
+            {
+                sortedList.Add(array[rightIndex]);
+                rightIndex++;
+            }
+        }
+
+        for (int i = 0; i < sortedList.Count; i++)
+        {
+            array[start + i] = sortedList[i];
+        }
+    }
+    
     // 버블정렬
     public static void BubbleSort(int[] array)
     {
