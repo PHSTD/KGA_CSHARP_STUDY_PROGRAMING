@@ -19,11 +19,37 @@ class Program
         // Console.WriteLine(result);
         
         
-        // 정렬
+        // // 선택 정렬
+        // Random random = new Random();
+        // int count = 20;
+        //
+        // int[] selectArray = new int[count];
+        // Console.WriteLine("랜덤 데이터 결과 : ");
+        // for (int i = 0; i < count; i++)
+        // {
+        //     int rand = random.Next(0, 100);
+        //     Console.Write($"{rand, 3} ");
+        //     
+        //     selectArray[i] = rand;
+        // }
+        // Console.WriteLine();
+        // Console.WriteLine();
+        //
+        // Sorting.SelectionSort(selectArray);
+        // Console.WriteLine("선택 정렬 결과 : ");
+        // foreach (int value in selectArray)
+        // {
+        //     Console.Write($"{value,3} ");
+        // }
+        // Console.WriteLine();
+        
+        
+        // 삽입 정렬
         Random random = new Random();
         int count = 20;
 
         int[] selectArray = new int[count];
+        int[] insertArray = new int[count];
         Console.WriteLine("랜덤 데이터 결과 : ");
         for (int i = 0; i < count; i++)
         {
@@ -31,12 +57,22 @@ class Program
             Console.Write($"{rand, 3} ");
             
             selectArray[i] = rand;
+            insertArray[i] = rand;
         }
         Console.WriteLine();
         Console.WriteLine();
         
         Sorting.SelectionSort(selectArray);
         Console.WriteLine("선택 정렬 결과 : ");
+        foreach (int value in selectArray)
+        {
+            Console.Write($"{value,3} ");
+        }
+        Console.WriteLine();
+        
+        
+        Sorting.InsertionSort(insertArray);
+        Console.WriteLine("삽입 정렬 결과 : ");
         foreach (int value in selectArray)
         {
             Console.Write($"{value,3} ");

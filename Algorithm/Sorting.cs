@@ -25,6 +25,31 @@ public class Sorting
             Swap(array, i, minIndex);
         }
     }
+    
+    // 삽입 정렬
+    public static void InsertionSort(int[] array)
+    {
+        // 처음부터 끝까지 반복
+        for (int i = 0; i < array.Length; i++)
+        {
+            // 적합한 위치에 들어갈때 까지 반복
+            for (int j = i; j > 0; j--)
+            {
+               // 다음 수자를 하나씩 꺼내서 
+               if (array[j - 1] > array[j])
+               {
+                   // 앞 숫자와 비교해서 더 작으면 한칸 뒤로 밀고
+                   Swap(array, j-1, j);
+               }
+               else
+               {
+                   // 작지 않으면 그 자리에 넣기
+                   break;
+               }
+            }
+           
+        }
+    }
 
     private static void Swap(int[] array, int left, int right)
     {
