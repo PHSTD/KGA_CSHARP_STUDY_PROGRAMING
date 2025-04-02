@@ -50,6 +50,24 @@ public class Sorting
            
         }
     }
+    
+    // 버블정렬
+    public static void BubbleSort(int[] array)
+    {
+        // 처음부터 끝까지 반복
+        for(int i = 1; i < array.Length; i++)
+        {
+            // 하나씩 골라서 하는 작업 반복
+            for (int j = 0; j < array.Length - 1; j++)
+            {
+                // 서로 인접한 두 데이터를 비교해서 더 크면
+                if (array[j] > array[j + 1])
+                {
+                    Swap(array,j,j + 1);
+                }
+            }
+        }
+    }
 
     private static void Swap(int[] array, int left, int right)
     {

@@ -19,37 +19,12 @@ class Program
         // Console.WriteLine(result);
         
         
-        // // 선택 정렬
-        // Random random = new Random();
-        // int count = 20;
-        //
-        // int[] selectArray = new int[count];
-        // Console.WriteLine("랜덤 데이터 결과 : ");
-        // for (int i = 0; i < count; i++)
-        // {
-        //     int rand = random.Next(0, 100);
-        //     Console.Write($"{rand, 3} ");
-        //     
-        //     selectArray[i] = rand;
-        // }
-        // Console.WriteLine();
-        // Console.WriteLine();
-        //
-        // Sorting.SelectionSort(selectArray);
-        // Console.WriteLine("선택 정렬 결과 : ");
-        // foreach (int value in selectArray)
-        // {
-        //     Console.Write($"{value,3} ");
-        // }
-        // Console.WriteLine();
-        
-        
-        // 삽입 정렬
         Random random = new Random();
         int count = 20;
 
         int[] selectArray = new int[count];
         int[] insertArray = new int[count];
+        int[] bubbleArray = new int[count];
         Console.WriteLine("랜덤 데이터 결과 : ");
         for (int i = 0; i < count; i++)
         {
@@ -58,6 +33,7 @@ class Program
             
             selectArray[i] = rand;
             insertArray[i] = rand;
+            bubbleArray[i] = rand;
         }
         Console.WriteLine();
         Console.WriteLine();
@@ -73,6 +49,14 @@ class Program
         
         Sorting.InsertionSort(insertArray);
         Console.WriteLine("삽입 정렬 결과 : ");
+        foreach (int value in selectArray)
+        {
+            Console.Write($"{value,3} ");
+        }
+        Console.WriteLine();
+        
+        Sorting.BubbleSort(bubbleArray);
+        Console.WriteLine("버블 정렬 결과 : ");
         foreach (int value in selectArray)
         {
             Console.Write($"{value,3} ");
