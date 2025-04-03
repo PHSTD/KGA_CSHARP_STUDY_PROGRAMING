@@ -1,4 +1,6 @@
-﻿namespace Algorithm;
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace Algorithm;
 
 class Program
 {
@@ -14,6 +16,33 @@ class Program
         int[] arra1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         int binIndex = Searching.Searching.BinarySearch(arra1, 6);
         Console.WriteLine($"탐색 결과 : {binIndex}");
+        
+        // 너비 우선 탐색 (Breadth-First Search) 
+        bool[,] graph = new bool[8, 8];
+        graph[0, 1] = true;
+        graph[1, 0] = true;
+        graph[0, 2] = true;
+        graph[2, 0] = true;
+        graph[0, 4] = true;
+        graph[4, 0] = true;
+        graph[1, 3] = true;
+        graph[3, 1] = true;
+        graph[1, 5] = true;
+        graph[5, 1] = true;
+        graph[2, 6] = true;
+        graph[6, 2] = true;
+        graph[4, 7] = true;
+        graph[7, 4] = true;
+        graph[5, 7] = true;
+        graph[7, 5] = true;
+        graph[6, 7] = true;
+        graph[7, 6] = true;
+        Searching.Searching.BFS(graph, 0, out bool[] visited, out int[] parents);
+        Console.WriteLine($"{"Vertext",8}{"visited", 8}{"Parent", 8}");
+        for (int i = 0; i < visited.Length; i++)
+        {
+            Console.WriteLine($"{i,8}{visited[i], 8}{parents[i], 8}");
+        }
 
 
         // 가장 큰 수를 찾기
