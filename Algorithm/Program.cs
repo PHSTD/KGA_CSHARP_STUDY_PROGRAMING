@@ -5,10 +5,15 @@ class Program
     static void Main(string[] args)
     {
 
-        // 탐색
+        // 순차 탐색
         int[] array = { 0, 4, 5, 6, 7, 8, 2, 1 };
         int findIndex = Searching.Searching.LinearSearch(array, 2);
         Console.WriteLine($"탐색 결과 : {findIndex}");
+        
+        // 이진 탐색
+        int[] arra1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        int binIndex = Searching.Searching.BinarySearch(arra1, 6);
+        Console.WriteLine($"탐색 결과 : {binIndex}");
 
 
         // 가장 큰 수를 찾기
