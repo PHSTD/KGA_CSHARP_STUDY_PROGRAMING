@@ -4,6 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        // 탐색
+        int[] array = { 0, 4, 5, 6, 7, 8, 2, 1 };
+        int findIndex = Searching.Searching.LinearSearch(array, 2);
+        Console.WriteLine($"탐색 결과 : {findIndex}");
+
+
         // 가장 큰 수를 찾기
         // int[] array = { 1, 2, 3, 4, 5 };
         // 1. 가장 큰 수를 저장할 변수 만들기
@@ -17,88 +24,89 @@ class Program
         // 재귀함수
         // int result = Recursion.Factorial(5);
         // Console.WriteLine(result);
-        
-        
-        Random random = new Random();
-        int count = 20;
 
-        int[] selectArray = new int[count];
-        int[] insertArray = new int[count];
-        int[] bubbleArray = new int[count];
-        int[] mergeArray = new int[count];
-        int[] quickArray = new int[count];
-        int[] heapArray = new int[count];
-        
-        Console.WriteLine("랜덤 데이터 결과 : ");
-        for (int i = 0; i < count; i++)
-        {
-            int rand = random.Next(0, 100);
-            Console.Write($"{rand, 3} ");
-            
-            selectArray[i] = rand;
-            insertArray[i] = rand;
-            bubbleArray[i] = rand;
-            mergeArray[i] = rand;
-            quickArray[i] = rand;
-            heapArray[i] = rand;
-        }
-        Console.WriteLine();
-        Console.WriteLine();
-        
-        Sorting.SelectionSort(selectArray);
-        Console.WriteLine("선택 정렬 결과 : ");
-        foreach (int value in selectArray)
-        {
-            Console.Write($"{value,3} ");
-        }
-        Console.WriteLine();
-        
-        
-        Sorting.InsertionSort(insertArray);
-        Console.WriteLine("삽입 정렬 결과 : ");
-        foreach (int value in selectArray)
-        {
-            Console.Write($"{value,3} ");
-        }
-        Console.WriteLine();
-        
-        Sorting.BubbleSort(bubbleArray);
-        Console.WriteLine("버블 정렬 결과 : ");
-        foreach (int value in selectArray)
-        {
-            Console.Write($"{value,3} ");
-        }
-        Console.WriteLine();
-        
-        
-        
-        Sorting.MergeSort(mergeArray);
-        Console.WriteLine("병합 정렬 결과 : ");
-        foreach (int value in mergeArray)
-        {
-            Console.Write($"{value,3} ");
-        }
-        Console.WriteLine();
-        
-        
-        
-        Sorting.QuickSort(quickArray);
-        Console.WriteLine("퀵 정렬 결과 : ");
-        foreach (int value in quickArray)
-        {
-            Console.Write($"{value,3} ");
-        }
-        Console.WriteLine();
-        
-        
-        Sorting.HeapSort(heapArray);
-        Console.WriteLine("힙 정렬 결과 : ");
-        foreach (int value in heapArray)
-        {
-            Console.Write($"{value,3} ");
-        }
-        Console.WriteLine();
-        
+
+        // 정렬
+        // Random random = new Random();
+        // int count = 20;
+        //
+        // int[] selectArray = new int[count];
+        // int[] insertArray = new int[count];
+        // int[] bubbleArray = new int[count];
+        // int[] mergeArray = new int[count];
+        // int[] quickArray = new int[count];
+        // int[] heapArray = new int[count];
+        //
+        // Console.WriteLine("랜덤 데이터 결과 : ");
+        // for (int i = 0; i < count; i++)
+        // {
+        //     int rand = random.Next(0, 100);
+        //     Console.Write($"{rand, 3} ");
+        //     
+        //     selectArray[i] = rand;
+        //     insertArray[i] = rand;
+        //     bubbleArray[i] = rand;
+        //     mergeArray[i] = rand;
+        //     quickArray[i] = rand;
+        //     heapArray[i] = rand;
+        // }
+        // Console.WriteLine();
+        // Console.WriteLine();
+        //
+        // Sorting.SelectionSort(selectArray);
+        // Console.WriteLine("선택 정렬 결과 : ");
+        // foreach (int value in selectArray)
+        // {
+        //     Console.Write($"{value,3} ");
+        // }
+        // Console.WriteLine();
+        //
+        //
+        // Sorting.InsertionSort(insertArray);
+        // Console.WriteLine("삽입 정렬 결과 : ");
+        // foreach (int value in selectArray)
+        // {
+        //     Console.Write($"{value,3} ");
+        // }
+        // Console.WriteLine();
+        //
+        // Sorting.BubbleSort(bubbleArray);
+        // Console.WriteLine("버블 정렬 결과 : ");
+        // foreach (int value in selectArray)
+        // {
+        //     Console.Write($"{value,3} ");
+        // }
+        // Console.WriteLine();
+        //
+        //
+        //
+        // Sorting.MergeSort(mergeArray);
+        // Console.WriteLine("병합 정렬 결과 : ");
+        // foreach (int value in mergeArray)
+        // {
+        //     Console.Write($"{value,3} ");
+        // }
+        // Console.WriteLine();
+        //
+        //
+        //
+        // Sorting.QuickSort(quickArray);
+        // Console.WriteLine("퀵 정렬 결과 : ");
+        // foreach (int value in quickArray)
+        // {
+        //     Console.Write($"{value,3} ");
+        // }
+        // Console.WriteLine();
+        //
+        //
+        // Sorting.HeapSort(heapArray);
+        // Console.WriteLine("힙 정렬 결과 : ");
+        // foreach (int value in heapArray)
+        // {
+        //     Console.Write($"{value,3} ");
+        // }
+        // Console.WriteLine();
+
     }
     
     
