@@ -1,4 +1,5 @@
 using System.Net.Mime;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Algorithm.Searching;
 
@@ -94,6 +95,36 @@ public class Searching
         }
     }
     
-    // <깊이 우선 탐색 (Depth-First Search)>
+    // 깊이 우선 탐색 (Depth-First Search)
+    public static void DFS(bool[,] graph, int start, out bool[] visited, out int[] parents)
+    {
+        // 사전 세팅
+        int size = graph.GetLength(0);
+        visited = new bool[size];
+        parents = new int[size];
 
+        for (int i = 0; i < size; i++)
+        {
+            visited[i] = false;
+            parents[i] = -1;
+        } 
+        
+        // 함수 호출 스택을 쓰는 방법
+        SearchNode(graph, start, visited, parents);
+    }
+
+    public static void SearchNode(bool[,] graph, int vertex, bool[] visited, int[] parents)
+    {
+        int size = graph.GetLength(0);
+        visited[vertex] = true;
+        for (int i = 0; i < size; i++)
+        {
+            // 연결되어 있는 정점 && 방문한적없는 정점
+            if (graph[vertex, i] == true && visited[i] == false)
+            {
+                parents[i] = vertex;
+                SearchNode(graph, i, visited, parents);
+            }
+        }
+    }
 }

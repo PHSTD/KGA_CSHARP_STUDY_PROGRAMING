@@ -17,7 +17,7 @@ class Program
         int binIndex = Searching.Searching.BinarySearch(arra1, 6);
         Console.WriteLine($"탐색 결과 : {binIndex}");
         
-        // 너비 우선 탐색 (Breadth-First Search) 
+        // 깊이 너부 탐색 세팅값
         bool[,] graph = new bool[8, 8];
         graph[0, 1] = true;
         graph[1, 0] = true;
@@ -37,13 +37,22 @@ class Program
         graph[7, 5] = true;
         graph[6, 7] = true;
         graph[7, 6] = true;
-        Searching.Searching.BFS(graph, 0, out bool[] visited, out int[] parents);
-        Console.WriteLine($"{"Vertext",8}{"visited", 8}{"Parent", 8}");
-        for (int i = 0; i < visited.Length; i++)
-        {
-            Console.WriteLine($"{i,8}{visited[i], 8}{parents[i], 8}");
-        }
+        
+        // 너비 우선 탐색 (Breadth-First Search) 
+        // Searching.Searching.BFS(graph, 0, out bool[] visited, out int[] parents);
+        // Console.WriteLine($"{"Vertext",8}{"visited", 8}{"Parent", 8}");
+        // for (int i = 0; i < visited.Length; i++)
+        // {
+            // Console.WriteLine($"{i,8}{visited[i], 8}{parents[i], 8}");
+        // }
 
+        // 깊이 우선 탐색 (Depth-First Search)
+        // Searching.Searching.DFS(graph, 0, out bool[] visited, out int[] parents);
+        // Console.WriteLine($"{"Vertext",8}{"visited", 8}{"Parent", 8}");
+        // for (int i = 0; i < visited.Length; i++)
+        // {
+            // Console.WriteLine($"{i,8}{visited[i], 8}{parents[i], 8}");
+        // }
 
         // 가장 큰 수를 찾기
         // int[] array = { 1, 2, 3, 4, 5 };
